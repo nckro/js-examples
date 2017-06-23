@@ -29,15 +29,12 @@ var ladders = [
 ];
 
 
-function  findWhere(array, criteria){
-  	function matchUserToProp(user,criteria) {
-			var response = true;
-			Object.keys(criteria).forEach(function(key){
-  			response = response && (user[key] && user[key]==criteria[key]);
- 			});
-  		return response;
-		}
-    return array.filter(function (user) {
-       	return matchUserToProp(user,criteria);
-    })[0].id;
+function findWhere(array, criteria){
+	return array.find( function(element){ 
+   	var response = true;
+		Object.keys(criteria).forEach(function(key){
+  		response = response && (element[key] && element[key]==criteria[key]);
+ 		});
+    return response;
+  });
 }
